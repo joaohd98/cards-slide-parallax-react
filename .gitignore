@@ -27,3 +27,7 @@ yarn-error.log*
 .env
 .env.build
 .vercel
+/.idea/.gitignore
+/.idea/cards-slide-parallax-react.iml
+/.idea/modules.xml
+/.idea/vcs.xml
