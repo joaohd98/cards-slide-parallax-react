@@ -13,16 +13,23 @@ export default () => {
     const tl1 = stContainerSticky();
     const tl2 = stCardsSlide();
 
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top center",
-      end: "bottom center",
-      pin: true,
-      scrub: true,
-      markers: true,
-      onUpdate: ({ progress }) => {
-        tl1.progress(progress);
-        tl2.progress(progress);
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 600px)", () => {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top center",
+        end: "bottom center",
+        pin: true,
+        scrub: true,
+        onUpdate: ({ progress }) => {
+          tl1.progress(progress);
+          tl2.progress(progress);
+        }
+      });
+
+      return () => {
+        tl1.revert();
+        tl2.revert();
       }
     });
   }, { scope: sectionRef });
