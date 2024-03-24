@@ -5,47 +5,48 @@ export const HomeTemplate =  styled.main`
 `;
 
 export const SectionEmpty = styled.section`
-  height: 80vh;
+  height: 100vh;
   width: 100%;
 `;
 
 export const CardsContainer = styled.section`
-  div:nth-child(1n) {
+  > :nth-child(1n) {
     background-color:  #b9ceff;
   }
 
-  div:nth-child(2n) {
+  > :nth-child(2n) {
     background-color:  #c6d7ff;
   }
 
-  div:nth-child(3n) {
+  > :nth-child(3n) {
     background-color:  #d2e0ff;
   }
 
-  div:nth-child(4n) {
+  > :nth-child(4n) {
     background-color:  #dfe8ff;
   }
 
-  div:nth-child(5n) {
+  > :nth-child(5n) {
     background-color:  #ebf1ff;
   }
-
-  @media (max-width: 599px) {
-    div:not(:first-of-type) {
-      margin-top: -4rem;
-    }
+  
+  > :not(:first-child) {
+    margin-top: -3rem;
   }
 `;
 
 export const Card = styled.div`
-  padding: 6rem 20rem 18rem;
+  position: relative;
+  height: 42rem;
+  padding: 5rem 20rem 0;
   border-radius: 2rem;
 
   @media (max-width: 1280px) {
-    padding: 6rem 12rem 6rem;
+    padding: 5rem 6rem 0;
   }
 
   @media (max-width: 599px) {
+    height: auto;
     padding: 4rem 4rem 8rem;
   }
 `;
@@ -56,6 +57,7 @@ export const Title = styled.h4`
   line-height: 2.8rem;
   font-weight: 900;
   margin-bottom: 3.4rem;
+  text-transform: uppercase;
 
   @media (max-width: 599px) {
     font-size: 2.5rem;
