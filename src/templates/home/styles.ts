@@ -9,7 +9,9 @@ export const SectionEmpty = styled.section`
   width: 100%;
 `;
 
-export const CardsContainer = styled.section`
+export const HomeSection = styled.section``;
+
+export const CardsContainer = styled.div`
   > :nth-child(1n) {
     background-color:  #b9ceff;
   }
@@ -87,7 +89,7 @@ export const Message = styled.span`
   }
 
   @media (max-width: 599px) {
-    font-size: 1.8rem;
-    line-height: 1.8rem;
+    font-size: 1.9rem;
+    line-height: 1.9rem;
   }
 `;
