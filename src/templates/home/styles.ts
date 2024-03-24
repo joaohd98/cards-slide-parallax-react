@@ -15,6 +15,9 @@ export const HomeSection = styled.section``;
 export const PinContainer = styled.div``;
 
 export const CardsContainer = styled.div`
+  position: relative;
+  height: 45rem;
+
   > :nth-child(1n) {
     background-color:  #b9ceff;
   }
@@ -35,24 +38,34 @@ export const CardsContainer = styled.div`
     background-color:  #ebf1ff;
   }
 
-  > :not(:first-child) {
-    margin-top: -3rem;
+  @media (max-width: 768px) {
+    height: auto;
   }
 `;
 
-export const Card = styled.div`
-  position: relative;
-  height: 42rem;
+export const Card = styled.div<{position: number}>`
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
   padding: 5rem 20rem 0;
   border-radius: 2rem;
+  transform: translateY(${({position}) => position * 95}%);
+  z-index: ${({position}) => position};
 
   @media (max-width: 1280px) {
     padding: 5rem 6rem 0;
   }
 
-  @media (max-width: 599px) {
-    height: auto;
-    padding: 4rem 4rem 8rem;
+  @media (max-width: 768px) {
+    position: relative;
+    padding: 4rem 4rem 10rem;
+    transform: translateY(0);
+
+    &:not(:first-child) {
+      margin-top: -4rem;
+    }
   }
 `;
 
@@ -75,7 +88,7 @@ export const Messages = styled.p`
   flex-direction: row;
   gap: 2rem;
   
-  @media (max-width: 1280px) {
+  @media (max-width: 720px) {
     flex-direction: column;
   }
 `;
@@ -87,12 +100,17 @@ export const Message = styled.span`
   font-weight: 400;
   white-space: break-spaces;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1281px) {
     max-width: 70rem;
+  }
+  
+  @media (max-width: 1280px) {
+    font-size: 1.7rem;
+    line-height: 1.7rem;
   }
 
   @media (max-width: 599px) {
-    font-size: 1.9rem;
-    line-height: 1.9rem;
+    font-size: 2rem;
+    line-height: 2rem;
   }
 `;

@@ -5,7 +5,7 @@ import C from './const';
 import useAnimation from './animation';
 
 const HomeTemplate: FC = () => {
-  const { pinRef, containerRef, setCardRef} = useAnimation();
+  const { pinRef, containerRef, setCardRef } = useAnimation();
 
   return (
     <S.HomeTemplate>
@@ -14,7 +14,7 @@ const HomeTemplate: FC = () => {
         <S.PinContainer ref={pinRef}>
           <S.CardsContainer ref={containerRef}>
             {C.cards.map(({ title, texts}, index) => (
-              <S.Card key={title} ref={setCardRef(index)} style={{zIndex: index}}>
+              <S.Card key={title} ref={setCardRef(index)} position={index}>
                 <S.Title>{title}</S.Title>
                 <S.Messages>
                   {texts.map(text => <S.Message key={text}>{text}</S.Message>)}
