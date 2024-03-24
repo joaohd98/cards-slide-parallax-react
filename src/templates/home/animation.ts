@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 
 export default () => {
-  const sectionRef = useRef(null);
+  const pinRef = useRef(null);
   const containerRef = useRef(null);
   const [cardsRef, setCardRef] = useRefElements<HTMLElement>();
 
@@ -16,9 +16,10 @@ export default () => {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 600px)", () => {
       ScrollTrigger.create({
-        trigger: sectionRef.current,
+        trigger: pinRef.current,
         start: "top center",
         end: "bottom center",
+        markers: true,
         pin: true,
         scrub: true,
         onUpdate: ({ progress }) => {
@@ -32,7 +33,7 @@ export default () => {
         tl2.revert();
       }
     });
-  }, { scope: sectionRef });
+  }, { scope: pinRef });
 
   const stContainerSticky = () => {
     const tl = gsap.timeline({ paused: true });
@@ -43,11 +44,11 @@ export default () => {
       }
 
       tl.to(cardsRef.current, { yPercent: (value) => {
-          const total = 68 * value;
-          const mapRange = gsap.utils.mapRange(0, value, 0, total, index);
+        const total = 68 * value;
+        const mapRange = gsap.utils.mapRange(0, value, 0, total, index);
 
-          return -gsap.utils.clamp(0, total, mapRange);
-        }})
+        return -gsap.utils.clamp(0, total, mapRange);
+      }})
     });
 
     return tl;
@@ -61,7 +62,7 @@ export default () => {
   }
 
   return {
-    sectionRef,
+    pinRef,
     containerRef,
     setCardRef
   }

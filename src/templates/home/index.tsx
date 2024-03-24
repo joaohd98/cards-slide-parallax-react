@@ -5,22 +5,24 @@ import C from './const';
 import useAnimation from './animation';
 
 const HomeTemplate: FC = () => {
-  const { sectionRef, containerRef, setCardRef} = useAnimation();
+  const { pinRef, containerRef, setCardRef} = useAnimation();
 
   return (
     <S.HomeTemplate>
       <S.SectionEmpty />
-      <S.HomeSection ref={sectionRef}>
-        <S.CardsContainer ref={containerRef}>
-          {C.cards.map(({ title, texts}, index) => (
-            <S.Card key={title} ref={setCardRef(index)} style={{zIndex: index}}>
-              <S.Title>{title}</S.Title>
-              <S.Messages>
-                {texts.map(text => <S.Message key={text}>{text}</S.Message>)}
-              </S.Messages>
-            </S.Card>
-          ))}
-        </S.CardsContainer>
+      <S.HomeSection>
+        <S.PinContainer ref={pinRef}>
+          <S.CardsContainer ref={containerRef}>
+            {C.cards.map(({ title, texts}, index) => (
+              <S.Card key={title} ref={setCardRef(index)} style={{zIndex: index}}>
+                <S.Title>{title}</S.Title>
+                <S.Messages>
+                  {texts.map(text => <S.Message key={text}>{text}</S.Message>)}
+                </S.Messages>
+              </S.Card>
+            ))}
+          </S.CardsContainer>
+        </S.PinContainer>
       </S.HomeSection>
       <S.SectionEmpty />
     </S.HomeTemplate>

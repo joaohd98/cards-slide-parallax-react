@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
 export const HomeTemplate =  styled.main`
-  background-color: ${({ theme }) => theme.blue};
 `;
 
 export const SectionEmpty = styled.section`
   height: 100vh;
   width: 100%;
+  background-color: ${({ theme }) => theme.blue};
+
 `;
 
 export const HomeSection = styled.section``;
+
+
+export const PinContainer = styled.div``;
 
 export const CardsContainer = styled.div`
   > :nth-child(1n) {
@@ -31,7 +35,7 @@ export const CardsContainer = styled.div`
   > :nth-child(5n) {
     background-color:  #ebf1ff;
   }
-  
+
   > :not(:first-child) {
     margin-top: -3rem;
   }

@@ -2,7 +2,7 @@ import 'styled-components';
 
 export const theme = {
   blue: "#180e3e",
-
+  black: "#180111",
 };
 
 export type ColorFamily = typeof theme;
