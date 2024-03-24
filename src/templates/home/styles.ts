@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const HomeTemplate =  styled.main`
+  background-color: ${({ theme }) => theme.blue};
+  overflow: hidden;
 `;
 
 export const SectionEmpty = styled.section`
   height: 100vh;
   width: 100%;
-  background-color: ${({ theme }) => theme.blue};
-
 `;
 
 export const HomeSection = styled.section``;
-
 
 export const PinContainer = styled.div``;
 

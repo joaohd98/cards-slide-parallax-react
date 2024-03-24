@@ -19,9 +19,9 @@ export default () => {
         trigger: pinRef.current,
         start: "top center",
         end: "bottom center",
-        markers: true,
-        pin: true,
         scrub: true,
+        pin: true,
+        pinSpacing: false,
         onUpdate: ({ progress }) => {
           tl1.progress(progress);
           tl2.progress(progress);
