@@ -13,6 +13,9 @@ export default () => {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 789px)", () => {
       const tl = gsap.timeline({
+        defaults: {
+          ease: "none"
+        },
         scrollTrigger: {
           trigger: pinRef.current,
           start: "top 45%",
